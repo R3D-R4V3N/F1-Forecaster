@@ -83,31 +83,36 @@ monaco_grand_prix:
     Q2Time_s: 70.57
     Q3Time_s: 69.95400000000001
     QualifyingTime_s: 69.95400000000001
+  - Driver: LEC
+    Q1Time_s: 71.229
+    Q2Time_s: 70.581
+    Q3Time_s: 70.063
+    QualifyingTime_s: 70.063
+  - Driver: PIA
+    Q1Time_s: 71.30799999999999
+    Q2Time_s: 70.858
+    Q3Time_s: 70.129
+    QualifyingTime_s: 70.129
   - Driver: VER
     Q1Time_s: 71.431
     Q2Time_s: 70.875
     Q3Time_s: 70.669
     QualifyingTime_s: 70.669
+  - Driver: HAD
+    Q1Time_s: 71.811
+    Q2Time_s: 71.03999999999999
+    Q3Time_s: 70.923
+    QualifyingTime_s: 70.923
   - Driver: OCO
     Q1Time_s: 71.839
     Q2Time_s: 71.262
     Q3Time_s: 70.94200000000001
     QualifyingTime_s: 70.94200000000001
-  - Driver: RUS
-    Q1Time_s: 71.507
+  - Driver: BEA
+    Q1Time_s: 71.979
     Q2Time_s: 0.0
     Q3Time_s: 0.0
-    QualifyingTime_s: 71.507
-  - Driver: HUL
-    Q1Time_s: 71.871
-    Q2Time_s: 71.596
-    Q3Time_s: 0.0
-    QualifyingTime_s: 71.596
-  - Driver: ANT
-    Q1Time_s: 71.88
-    Q2Time_s: 0.0
-    Q3Time_s: 0.0
-    QualifyingTime_s: 71.88
+    QualifyingTime_s: 71.979
   grand_prix: Monaco Grand Prix
   weather:
     air_temp: 21.86639344262295
