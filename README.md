@@ -112,7 +112,7 @@ running predictions or using the web form.
 3. Run the prediction script specifying the race key **or the round number** 🔢. Use
    `--train-years` to provide a comma separated list of seasons used for training:
 ```bash
-python3 predict.py chinese_gp --train-years 2022,2023,2024
+python3 predict.py chinese_gp --train-years 2021,2022,2023,2024
 # or simply
 python3 predict.py --round 5 --year 2025
 ```
