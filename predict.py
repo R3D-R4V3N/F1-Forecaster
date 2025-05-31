@@ -28,8 +28,8 @@ def main():
     parser.add_argument("--year", type=int, default=2025, help="Season year for --round")
     parser.add_argument(
         "--train-years",
-        default="2024",
-        help="Comma separated list of years to train on (default 2024)",
+        default="2021,2022,2023,2024",
+        help="Comma separated list of years to train on (default 2021,2022,2023,2024)",
     )
     args = parser.parse_args()
 
