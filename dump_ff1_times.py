@@ -3,12 +3,12 @@ import os
 import pandas as pd
 import argparse
 import fastf1
+fastf1.Cache.enable_cache(os.environ.get("FASTF1_CACHE_DIR", "f1_cache"))
 from predictor.openf1_utils import slugify
 
 
 def dump_session_times(year: int, grand_prix: str, outdir: str = "ff1_cache_dump") -> str:
     """Export fastest lap times from FastF1 cache to CSV."""
-    fastf1.Cache.enable_cache(os.environ.get("FASTF1_CACHE_DIR", "f1_cache"))
     ff1_map = [
         ("FP1", "FP1Time_s"),
         ("FP2", "FP2Time_s"),

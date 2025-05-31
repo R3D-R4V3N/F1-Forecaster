@@ -1,4 +1,5 @@
 import fastf1
+import os
 import pandas as pd
 import numpy as np
 import requests
@@ -7,7 +8,7 @@ from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.metrics import mean_absolute_error
 
 # Enable FastF1 caching
-fastf1.Cache.enable_cache("f1_cache")
+fastf1.Cache.enable_cache(os.environ.get("FASTF1_CACHE_DIR", "f1_cache"))
 
 # Load 2024 Japanese GP race session, lap and sector times
 session_2024 = fastf1.get_session(2024, "Japan", "R")
