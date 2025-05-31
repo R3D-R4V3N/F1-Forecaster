@@ -79,7 +79,11 @@ def main():
     constructor_points = _constructor_points_for_year(years[-1])
     result = predict_race(model, sector_times, drivers, constructor_points)
 
+    podium = result.head(3)
     print(result)
+    print("\nPodium:")
+    for pos, driver in enumerate(podium["Driver"], start=1):
+        print(f"P{pos}: {driver}")
     print(
         f"Model Error on years {','.join(map(str, years))} (MAE): {mae:.2f} seconds"
     )
