@@ -1,4 +1,11 @@
-from flask import Flask, request, redirect, render_template_string, jsonify
+from flask import (
+    Flask,
+    request,
+    redirect,
+    render_template_string,
+    jsonify,
+    url_for,
+)
 from threading import Thread
 import yaml
 import pandas as pd
@@ -42,10 +49,14 @@ def prefetch_training_data(grand_prix: str) -> None:
         except Exception as exc:  # pragma: no cover - network/dependency failures
             print(f"Prefetch failed for {grand_prix}: {exc}")
 
+    print(f"Prefetching training data for {grand_prix}. This may take a few minutes...")
     Thread(target=_task, daemon=True).start()
 
 FORM_TEMPLATE = """
 <h2>🏁 Add Race Data</h2>
+{% if message %}
+  <p style="color: orange;">{{ message }}</p>
+{% endif %}
 <form method="post">
   <label>Grand Prix 🏟️:
     <select name="grand_prix" id="grand_prix" onchange="onGPChange()">
@@ -181,8 +192,15 @@ def add_race():
             yaml.safe_dump(data, f)
         # Prefetch historical data for training in the background
         prefetch_training_data(gp)
-        return redirect('/')
+        return redirect(url_for('add_race', message='prefetch'))
     gp_selected = request.args.get('grand_prix', '')
+    message_key = request.args.get('message', '')
+    message_text = ''
+    if message_key == 'prefetch':
+        message_text = (
+            'Downloading historical data in the background. '
+            'This may take a few minutes.'
+        )
     global SCHEDULE_OPTIONS
     if not SCHEDULE_OPTIONS:
         try:
@@ -203,6 +221,7 @@ def add_race():
         gp=gp_selected,
         race_key=race_key,
         weather=weather,
+        message=message_text,
     )
 
 
