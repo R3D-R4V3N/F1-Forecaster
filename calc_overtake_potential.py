@@ -1,6 +1,8 @@
 import argparse
 import fastf1
+import os
 import pandas as pd
+fastf1.Cache.enable_cache(os.environ.get("FASTF1_CACHE_DIR", "f1_cache"))
 
 
 def _track_overtake_potential(session_r) -> float:

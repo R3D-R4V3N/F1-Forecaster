@@ -1,4 +1,5 @@
 import fastf1
+import os
 import pandas as pd
 import numpy as np
 import requests
@@ -8,7 +9,7 @@ from sklearn.metrics import mean_absolute_error
 import matplotlib.pyplot as plt
 from sklearn.impute import SimpleImputer
 
-fastf1.Cache.enable_cache("f1_cache")
+fastf1.Cache.enable_cache(os.environ.get("FASTF1_CACHE_DIR", "f1_cache"))
 
 # load the 2024 Emilia Romagna session data
 session_2024 = fastf1.get_session(2024, 7, "Q")

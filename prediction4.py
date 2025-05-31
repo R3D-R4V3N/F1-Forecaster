@@ -1,4 +1,5 @@
 import fastf1
+import os
 import pandas as pd
 import numpy as np
 import requests
@@ -7,7 +8,7 @@ from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.metrics import mean_absolute_error
 import matplotlib.pyplot as plt
 
-fastf1.Cache.enable_cache("f1_cache")
+fastf1.Cache.enable_cache(os.environ.get("FASTF1_CACHE_DIR", "f1_cache"))
 
 # load 2024 Bahrain race, lap time, sector times
 session_2024 = fastf1.get_session(2024, "Bahrain", "R")
